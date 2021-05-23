@@ -1,0 +1,53 @@
+<div role="document">
+  <div>
+    <form class="form-horizontal" id="add-form" [formGroup]="editPostForm" (ngSubmit)="onPostEditFormSubmit()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="add-modal-label">Edit Post</h4>
+      </div>
+      <div class="modal-body">
+        <div hideen class="form-group">
+          <label class="col-sm-2 control-label">Id</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="id"   [(ngModel)]="currentClient.id" name="id"   />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Nom</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="nom"  [(ngModel)]="currentClient.nom" name="nom"   />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">prenom</label>
+          <div class="col-sm-10">
+            <input class="form-control" formControlName="prenom"  [(ngModel)]="currentClient.prenom" name="prenom"  >
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">date Naissance</label>
+          <div class="col-sm-10">
+            <input class="form-control" formControlName="dateNaiss" [(ngModel)]="currentClient.dateNaiss" name="dateNaiss"  >
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Adresse</label>
+          <div class="col-sm-10">
+            <input class="form-control" formControlName="adresse"  [(ngModel)]="currentClient.adresse" name="adresse"  >
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Telephone</label>
+          <div class="col-sm-10">
+            <input class="form-control" formControlName="telephone"  [(ngModel)]="currentClient.telephone" name="telephone"  >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 offset-md-3">
+      <form novalidate>
+          <h1 class="text-center">Modifier une réservation</h1>
+      
+          <div hidden class="form-group">
+              <label for="idResrv">Numéro de réservation</label>
+              <input type="text" [(ngModel)]="currentReservation.idResrv" name="idResrv" class="form-control">
+          </div>
+          <div class="form-group">
+              <label for="dateDebut"><i class="fas fa-calendar-alt"></i>Du</label>
+              <input type="date" class="form-control" required [(ngModel)]="currentReservation.dateDebut" placeholder="Entrez la date de début de réservation" name="dateDebut">
+          </div>
+          <div class="form-group">
+              <label for="dateFin"><i class="fas fa-calendar-alt"></i>Au</label>
+              <input type="date" class="form-control" required [(ngModel)]="currentReservation.dateFin" placeholder="Entrez la date de fin de réservation" name="dateFin">
+          </div>
+  
+          <div class="form-group">
+              <label for="nomClient"><i class="fas fa-user"></i>Nom client</label>
+              <input type="text" class="form-control" required pattern="^[a-zA-Z]+$" [(ngModel)]="currentReservation.nomClient" placeholder="Entrez le nom de client" name="nomClient">
+             
+          </div>
+          <div class="form-group">
+              <label for="prenomClient"><i class="fas fa-user"></i>Prénom client</label>
+              <input type="text" class="form-control" required pattern="^[a-zA-Z]+$"  [(ngModel)]="currentReservation.prenomClient" placeholder="Entrez le prénom de client" name="prenomClient">
+          </div>
+
+          <div class="form-group">
+              <label for="numChambre"><i class="fas fa-door-open"></i>Numéro de chambre</label>
+              <input type="text" class="form-control" required [(ngModel)]="currentReservation.numChambre" placeholder="Entrez le numéro de chambre" name="numChambre">
+          </div>
+         
+          <div class="text-center">
+          <button type="submit" (click)="updateReservation()" class="btn btn-success"><i class="fas fa-edit"></i>Modifier</button>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+

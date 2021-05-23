@@ -1,0 +1,67 @@
+<div class="content">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <h3 class="heading mb-4">Ecrivez votre commentaire</h3>
+            <p>N'hésitez pas à exprimer votre avis</p>
+            <p><img src="assets/images/undraw-contact.svg" alt="Image" class="img-fluid"></p>
+          </div>
+          <div class="col-md-6">
+            <form [formGroup]="commForm" (ngSubmit)="onSubmit()" class="mb-5">
+              <div hidden class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" name="IdComm" id="IdComm" ngModel>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control"  id="nomC" placeholder="Nom" formControlName="nomC"
+                    [ngClass]="{ 'is-invalid': submitted && f.nomC.errors }">
+                  <div *ngIf="submitted && f.nomC.errors" class="invalid-feedback">
+                    <div *ngIf="f.nomC.errors.required">nom est obligatoire</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" name="prenomC" id="prenomC" placeholder="Prenom"
+                    formControlName="prenomC" [ngClass]="{ 'is-invalid': submitted && f.prenomC.errors }">
+                  <div *ngIf="submitted && f.prenomC.errors" class="invalid-feedback">
+                    <div *ngIf="f.prenomC.errors.required">prenom est obligatoire</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="date" class="form-control" name="dateAjout" id="dateAjout" placeholder="Date"
+                    formControlName="dateAjout" [ngClass]="{ 'is-invalid': submitted && f.dateAjout.errors }">
+                  <div *ngIf="submitted && f.dateAjout.errors" class="invalid-feedback">
+                    <div *ngIf="f.dateAjout.errors.required">date est obligatoire</div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="commentaire" id="commentaire" cols="30" rows="7"
+                    placeholder="Votre commentaire" formControlName="commentaire"
+                    [ngClass]="{ 'is-invalid': submitted && f.commentaire.errors }"></textarea>
+                    <div *ngIf="submitted && f.commentaire.errors" class="invalid-feedback" >
+                     <div *ngIf="f.commentaire.errors.required">commentaire est obligatoire</div>
+                </div>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-12">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i>Envoyer</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</div>

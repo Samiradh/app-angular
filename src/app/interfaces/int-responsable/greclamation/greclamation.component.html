@@ -1,0 +1,30 @@
+<div class="panel panel-primary">
+  <div class="container">
+ <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0"
+          width="100%">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col"><i class="fas fa-user"></i>Nom</th>
+              <th scope="col"><i class="fas fa-user"></i>Prénom</th>
+              <th scope="col"><i class="fas fa-comments"></i>Type</th>
+              <th scope="col"><i class="fas fa-calendar"></i>Description</th>
+              <th scope="col"><i class="fas fa-calendar"></i>Date</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let reclamation of reclamations">
+            <tr>
+              <td> {{ reclamation.idRecl}} </td>
+              <td>{{ reclamation.nomC }}</td>
+              <td>{{ reclamation.prenomC}}</td>
+              <td>{{ reclamation.type }}</td>
+              <td>{{ reclamation.description }}</td>
+              <td>{{ reclamation.dateRecl | date:"dd/MM/yyyy" }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+

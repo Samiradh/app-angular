@@ -1,0 +1,67 @@
+<app-header></app-header>
+<div class="col-md-12">
+  <div class="card card-container">
+    <img id="profile-img" src="https://static.thenounproject.com/png/546969-200.png" class="profile-img-card" />
+    <form *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username"><i class="fas fa-user-tie"></i>Nom</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required minlength="3"
+          maxlength="20" #username="ngModel" />
+        <div class="alert-danger" *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Nom d'utilisateur est obligatoire</div>
+          <div *ngIf="username.errors.minlength">
+            Le nom d'utilisateur doit comporter au moins 3 caractères
+          </div>
+          <div *ngIf="username.errors.maxlength">
+            Le nom d'utilisateur doit comporter au maximum 20 caractères
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email"><i class="fas fa-envelope"></i>Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email
+          #email="ngModel" />
+        <div class="alert-danger" *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email.errors.required">L'email est obligatoire</div>
+          <div *ngIf="email.errors.email">
+            L'email doit être une adresse email valide
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password"><i class="fas fa-lock"></i>Mot de passe</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6"
+          #password="ngModel" />
+        <div class="alert-danger" *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Le mot de passe est obligatoire</div>
+          <div *ngIf="password.errors.minlength">
+            Le mot de passe doit être au moins de 6 caractères
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="roles"><i class="fas fa-user-tag"></i>roles</label>
+        <select id="roles" name="role" [(ngModel)]="form.role" class="form-control">
+          <option></option>
+          <option ngValue="receptionniste">Réceptionniste</option>
+          <option ngValue="employe">Employe</option>
+          <option ngValue="client">Client</option>
+        </select>
+        <span class="select-arrow"></span>
+      </div>
+      <br>
+      <br>
+      <br>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">S'inscrire</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        L'inscription a échoué {{ errorMessage }}
+      </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Votre inscription est réussie!
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+  <div class="container">
+ <table id="example" class="table table-striped table-bordered table-sm row-border hover" cellspacing="0"
+          >
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col"><i class="fas fa-sort-numeric-up-alt"></i>Numéro</th>
+              <th scope="col"><i class="fas fa-keyboard"></i>Type</th>
+              <th scope="col"><i class="fas fa-audio-description"></i>Description</th>
+              <th scope="col"><i class="fas fa-calendar-times"></i>Date Entrée</th>
+              <th scope="col"><i class="fas fa-calendar-times"></i>Date Sortie </th>
+              <th scope="col"><i class="fas fa-toggle-on"></i>Etat </th>
+              <th scope="col"><i class="fas fa-camera-retro"></i>image</th>
+              <th scope="col"><i class="fas fa-cogs"></i>Action </th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let chambre of chambres ">
+            <tr>
+              <td> {{ chambre.idChambre }} </td>
+              <td>{{ chambre.numChambre }}</td>
+              <td>{{ chambre.typeChambre }}</td>
+              <td>{{ chambre.description }}</td>
+              <td>{{ chambre.dateEntree | date:"dd/MM/yyyy" }}</td>
+              <td>{{ chambre.dateSortie | date:"dd/MM/yyyy" }}</td>
+              <td>{{ chambre.etat }}</td>
+              <td><a href="#"><img class="card-img-top img-responsive" src="{{chambre.image}}"
+                    style="height :50px; width:50px" alt=""></a></td>
+              <td><button class="btn btn-danger btn btn-outline-dark ml-1" (click)="supprimerChambre(chambre)"><i class="fas fa-trash-alt"></i>supprimer</button> </td>
+              <td> <button class="btn btn-warning btn btn-outline-dark ml-1" style='margin-right:16px'
+                  [routerLink]="['/updatechambre',chambre.idChambre]"><i class="fas fa-edit"></i>modifier</button></td>
+              <td> <button style='margin-right:16px' [routerLink]="['/detailchambre',chambre.idChambre]"
+                  class="btn btn-primary" style="margin-left: 10px"><i class="fas fa-info-circle"></i>détail
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+   
+
+

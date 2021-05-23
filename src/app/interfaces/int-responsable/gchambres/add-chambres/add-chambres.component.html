@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <app-int-responsable></app-int-responsable>
+    <div class="col-md-6 offset-md-3">
+      <form  [formGroup]="registerForm"  (ngSubmit)="onSubmit()">
+        <h1 class="text-center">ajouter chambre</h1>
+        <div hidden class="form-group">
+          <label for="IdChambre">Id</label>
+          <input type="number" class="form-control" name="IdChambre" ngModel>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-sort-numeric-up-alt"></i>Numéro</label>
+          <input type="number" class="form-control" formControlName="numChambre"
+            [ngClass]="{ 'is-invalid': submitted && f.numChambre.errors }">
+          <div *ngIf="submitted && f.numChambre.errors" class="invalid-feedback">
+            <div *ngIf="f.numChambre.errors.required">num chambre est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-keyboard"></i>Type Chambre</label>
+          <input type="text" formControlName="typeChambre" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.typeChambre.errors }">
+          <div *ngIf="submitted && f.typeChambre.errors " class="invalid-feedback">
+            <div *ngIf="f.typeChambre.errors.required">type est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-audio-description"></i>Description</label>
+          <input type="textarea" formControlName="description" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+          <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+            <div *ngIf="f.description.errors.required">description est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-calendar-times"></i>Du</label>
+          <input type="date" formControlName="dateEntree" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.dateEntree.errors }" />
+          <div *ngIf="submitted && f.dateEntree.errors" class="invalid-feedback">
+            <div *ngIf="f.dateEntree.errors.required">date est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-calendar-times"></i>Au</label>
+          <input type="date" formControlName="dateSortie" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.dateSortie.errors }" />
+          <div *ngIf="submitted && f.dateSortie.errors" class="invalid-feedback">
+            <div *ngIf="f.dateSortie.errors.required">date est obligatoire</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-toggle-on"></i>Etat</label>
+          <input type="text" formControlName="etat" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.etat.errors }" />
+          <div *ngIf="submitted && f.etat.errors" class="invalid-feedback">
+            <div *ngIf="f.etat.errors.required">etat est obligatoire *disponible ou *reservée</div>
+          </div>
+        </div>
+
+
+<div>
+  <input type="file" (change)="onFileChanged($event)">
+  <img [src]="imgURL" height="200" *ngIf="imgURL">
+</div>
+<input type="button" (click)="onUpload()" value="upload">
+Received Image:
+{{ receivedImageData['pic'] | json}}
+<img [src]="convertedImage" >
+        <br>
+        <div class="mt-2">
+          <button class="btn btn-primary mr-1" >ajouter</button>
+          <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+        </div>
+</form>
+</div>
+</div>
+</div>
+
+

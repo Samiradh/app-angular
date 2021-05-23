@@ -1,0 +1,88 @@
+<div class="bg-contact100" style="background-image: url('images/bg-01.jpg');">
+  <div class="container-contact100">
+    <div class="wrap-contact100">
+      <div class="contact100-pic js-tilt" data-tilt>
+					<img src="assets/images/img-01.png" alt="IMG">
+				</div>
+				<form [formGroup]="reclForm" (ngSubmit)="onSubmit()">
+					<span class="contact100-form-title">
+						<h3 class="heading mb-4">Ecrivez votre réclamation</h3>
+					</span>
+					<div hidden class="wrap-input100 validate-input" data-validate="">
+						<input class="input100" type="text" name="idRecl" ngModel>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate="Le nom est obligatoire">
+						<input class="input100" type="text" name="nomC" placeholder="Nom"formControlName="nomC"
+            [ngClass]="{ 'is-invalid': submitted && f.nomC.errors }">
+          <div *ngIf="submitted && f.nomC.errors" class="invalid-feedback">
+            <div *ngIf="f.nomC.errors.required">nom est obligatoire</div>
+            </div>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate="Le prenom est obligatoire">
+						<input class="input100" type="text" name="prenomC" placeholder="Prenom" formControlName="prenomC"
+            [ngClass]="{ 'is-invalid': submitted && f.prenomC.errors }">
+            <div *ngIf="submitted && f.prenomC.errors" class="invalid-feedback">
+              <div *ngIf="f.prenomC.errors.required">prenom est obligatoire</div>
+            </div>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="la date est obligatoire">
+						<input class="input100" type="date" name="dateRecl" placeholder="Date" formControlName="dateRecl"
+            [ngClass]="{ 'is-invalid': submitted && f.dateRecl.errors }">
+            <div *ngIf="submitted && f.dateRecl.errors" class="invalid-feedback">
+              <div *ngIf="f.dateRecl.errors.required">date est obligatoire</div>
+            </div>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fas fa-calendar-alt" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="le type est obligatoire">
+						<input class="input100" type="text" name="type" placeholder="Type"  formControlName="type"
+             [ngClass]="{ 'is-invalid': submitted && f.type.errors }">
+            <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+              <div *ngIf="f.type.errors.required">type est obligatoire</div>
+            </div>
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-list" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="La description est obligatoire">
+						<textarea class="input100" name="description" placeholder="Description"  formControlName="description"
+             [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+              <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                <div *ngIf="f.description.errors.required">description est obligatoire</div>
+              </div>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="container-contact100-form-btn">
+						<button type="submit" class="contact100-form-btn" >
+							Envoyer
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+

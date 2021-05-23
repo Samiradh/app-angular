@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="cardshadowmb-4">
+      <div class="card-body">
+          <h2>Liste des réservations</h2>
+          <br>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Numéro de réservation</th>
+                      <th><i class="fas fa-calendar-alt">Du</i></th>
+                      <th><i class="fas fa-calendar-alt">Au</i></th>
+                      <th><i class="fas fa-user">Nom client</i></th>
+                      <th><i class="fas fa-user">Prénom client</i></th>
+                      <th><i class="fas fa-door-open">Numéro de chambre</i></th>
+                      <th><i class="fas fa-cogs">Actions</i></th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let reservation of reservations">
+                  <tr>
+                      <td>{{reservation.idResrv}}</td>
+                      <td>{{reservation.dateDebut | date:'dd/MM/yyyy'}}</td>
+                      <td>{{reservation.dateFin | date:'dd/MM/yyyy'}}</td>
+                      <td>{{reservation.nomClient}}</td>
+                      <td>{{reservation.prenomClient}}</td>
+                      <td>{{reservation.numChambre}}</td>
+                      <td><a class ="btn btn-danger" (click)="supprimerReservation(reservation)"><i class="fas fa-trash-alt">Supprimer</i></a></td>
+                      <td><a class ="btn btn-success" [routerLink]= "['/updatereservation', reservation.idResrv]"><i class="fas fa-edit">Modifier</i></a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+

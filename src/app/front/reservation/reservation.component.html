@@ -1,0 +1,77 @@
+<app-header></app-header>
+<div id="booking" class="section">
+  <div class="section-center">
+    <div class="container">
+      <form class="row">
+        <div class="booking-form">
+          <div class="form-header">
+            <form #reserv="ngForm" novalidate></form>
+            <h2>Réservez votre chambre</h2>
+            <p></p>
+          </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Du</span>
+                  <input class="form-control" type="date" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <span class="form-label">Au</span>
+                  <input class="form-control" type="date" required>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <span class="form-label">Chambres</span>
+                  <select class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                  <span class="select-arrow"></span>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <span class="form-label">Nom</span>
+                  <input type="text" class="form-control" required minlength="3" pattern="^[a-zA-Z]+$"
+                  #nomClient="ngModel" placeholder="Entrez votre nom" name="nomClient" ngModel>
+                  <div *ngIf="nomClient.invalid && (nomClient.dirty || nomClient.touched)" class="alert alert-danger">
+                    <div *ngIf="nomClient.errors.required">
+                        Le nom est obligatoire
+                    </div>
+                    <div *ngIf="nomClient.errors.minlength">
+                        le nom doit comporter au moins 3 caractères
+                    </div>
+                </div>
+                </div>
+                 </div>
+
+              <div class="col-md-4">
+                <div class="form-group">
+                  <span class="form-label">Prénom</span>
+                  <input type="text" class="form-control" required pattern="^[a-zA-Z]+$" #prenomClient="ngModel"
+                      placeholder="Entrez votre prénom" name="prenomClient" ngModel>
+                      <div *ngIf="prenomClient.invalid && (prenomClient.dirty || prenomClient.touched)" class="alert alert-danger">
+                        <div *ngIf="prenomClient.errors.required">
+                            Le prénom est obligatoire
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-btn">
+              <button class="submit-btn">Envoyer</button>
+            </div>
+            </div>
+          </form>
+        </div>
+  </div>
+  </div>
+
+
+

@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="cardshadowmb-4">
+      <div class="card-body">
+          <h2>Liste des utilisateurs</h2>
+          <br>
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Id</th>
+                      <th><i class="fas fa-user">Nom</i></th>
+                      <th><i class="fas fa-user">Email</i></th>
+                      <th><i class="fas fa-unlock-alt">Mot de passe</i></th>
+                      <th><i class="fas fa-briefcase">Role</i></th>
+                      <th><i class="fas fa-cogs">Actions</i></th>
+                  </tr>
+              </thead>
+              <tbody *ngFor="let user of users" >
+                  <tr>
+                      <td>{{ user.id }}</td>
+                      <td>{{ user.username }}</td>
+                      <td>{{ user.email }}</td>
+                      <td>{{ user.password }}</td>
+                      <td>{{ user.role }}</td>
+                      <td><a class ="btn btn-danger" (click)="supprimerUser(user)"><i class="fas fa-trash-alt">Supprimer</i></a></td>
+                      <td><a class ="btn btn-success" [routerLink]= "['/updateUser', user.id]"><i class="fas fa-edit">Modifier</i></a></td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+

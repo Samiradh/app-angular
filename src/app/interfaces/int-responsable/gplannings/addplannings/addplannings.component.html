@@ -1,0 +1,52 @@
+<div role="document">
+  <div>
+    <form class="form-horizontal" id="add-form" [formGroup]="addNewPostForm" (ngSubmit)="onPostFormSubmit()">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="add-modal-label">Add Planning</h4>
+      </div>
+      <div class="modal-body">
+        <div hidden class="form-group">
+          <label class="col-sm-2 control-label">Id</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="idPlanning" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Nom Employé</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="nomEmp" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Prenom Employé</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" formControlName="prenomEmp" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Date </label>
+          <div class="col-sm-10">
+            <input type="date" class="form-control" formControlName="date" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Horaire d'Entrée</label>
+          <div class="col-sm-10">
+            <input type="time" class="form-control" formControlName="timein" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-2 control-label">Horaire de Sortie</label>
+          <div class="col-sm-10">
+            <input  type="time" class="form-control" formControlName="timeout" />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="onClose()">Close</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

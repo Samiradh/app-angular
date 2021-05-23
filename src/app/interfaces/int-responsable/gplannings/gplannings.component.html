@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <h3>Gestion Des Plannings</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <span (click)="ajouterPlanning()" class="btn btn-primary btn-xs">Add New Planning</span>
+      <br /><br />
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th>Id</th>
+            <th><i class="fas fa-user">Nom</i></th>
+            <th><i class="fas fa-user">Prénom</i></th>
+            <th><i class="fas fa-calendar-alt">Date d'aujourd'hui</i></th>
+            <th><i class="far fa-clock"></i>Horaires d'entrée</th>
+            <th><i class="fas fa-clock"></i>Horaires de sortie</th>
+            <th><i class="fas fa-cogs">Actions</i></th>
+
+    </thead>
+    <tbody *ngFor="let planning of plannings">
+        <tr>
+            <td>{{planning.idPlanning}}</td>
+            <td>{{planning.nomEmp}}</td>
+            <td>{{planning.prenomEmp}}</td>
+            <td>{{planning.date | date:"dd/MM/yyyy"}}</td>
+            <td>{{planning.timein }}</td>
+            <td>{{planning.timeout}}</td>
+              <td><span class="btn btn-primary btn-xs" (click)="updatePlanning(planning.idPlanning)">
+                <i class="fas fa-edit"></i></span></td>
+              <td><span class="btn btn-danger btn-xs" (click)="supprimerPlanning(planning.idPlanning)">
+                <i class="fas fa-trash-alt"></i></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

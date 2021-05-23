@@ -1,0 +1,45 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" style="text-align:center;">
+      <h3>Gestion Des Clients</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8">
+      <span (click)="ajouterService()" class="btn btn-primary btn-xs">Ajouter autre Service</span>
+      <br /><br />
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th scope="col">Id</th>
+            <th scope="col"><i class="fab fa-servicestack"></i>Nom</th>
+            <th scope="col"><i class="fas fa-audio-description"></i>Description</th>
+            <th scope="col"><i class="fas fa-calendar-alt"></i>Date Disponible </th>
+            <th scope="col"><i class="fas fa-dollar-sign"></i>Prix</th>
+            <th scope="col"><i class="fas fa-camera-retro"></i>image </th>
+            <th>
+              <i class="fas fa-cogs">Action</i>
+            </th>
+          </thead>
+          <tbody *ngFor="let item of services ">
+            <tr>
+              <td> {{item.idService }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.description }}</td>
+              <td>{{ item.dateDispo | date:"dd/MM/yyyy" }}</td>
+              <td>{{ item.price }}</td>
+              <td><a href="#"><img class="card-img-top img-responsive" src="{{item.image}}"
+                style="height :50px; width:50px" alt=""></a></td>
+              <td><span class="btn btn-primary btn-xs" (click)="updateService(item.idService)">
+                <i class="fas fa-edit"></i></span></td>
+              <td><span class="btn btn-danger btn-xs" (click)="supprimerService(item.idService)">
+                <i class="fas fa-trash-alt"></i></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

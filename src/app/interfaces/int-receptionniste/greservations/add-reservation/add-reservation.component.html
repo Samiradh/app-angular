@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+        <h1 class="text-center">Ajouter une réservation</h1>
+        <div hidden class="form-group">
+          <label>Numéro de réservation</label>
+          <input type="text" [(ngModel)]="newReservation.idResrv" name="idResrv" class="form-control">
+        </div>
+        <div class="form-group">
+          <label><i class="fas fa-calendar-alt"></i>Du</label>
+          <input type="date" class="form-control" placeholder="Entrer date reservation" formControlName="dateDebut"
+            [ngClass]="{ 'is-invalid': submitted && f.dateDebut.errors }" />
+          <div *ngIf="submitted && f.dateDebut.errors" class="invalid-feedback">
+            <div *ngIf="f.dateDebut.errors.required">Date est obligatoire</div>
+          </div>
+         </div>
+          <div class="form-group">
+            <label><i class="fas fa-calendar-alt"></i>Au</label>
+            <input type="date" class="form-control" placeholder="Entrer date reservation" formControlName="dateFin"
+              [ngClass]="{ 'is-invalid': submitted && f.dateFin.errors }" />
+            <div *ngIf="submitted && f.dateFin.errors" class="invalid-feedback">
+              <div *ngIf="f.dateFin.errors.required">Date est obligatoire</div>
+            </div>
+            </div>
+
+
+            <div class="form-group">
+              <label><i class="fas fa-user"></i>Nom client</label>
+              <input type="text" class="form-control" placeholder="Entrer nom client" formControlName="nomClient"
+                [ngClass]="{ 'is-invalid': submitted && f.nomClient.errors }" />
+              <div *ngIf="submitted && f.nomClient.errors" class="invalid-feedback">
+                <div *ngIf="f.nomClient.errors.required">nom client est obligatoire</div>
+                <div *ngIf="f.nomClient.errors.pattern">nom doit une chaine </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label><i class="fas fa-user"></i>Prénom client</label>
+              <input type="text" class="form-control" placeholder="Entrer Prénom client" formControlName="prenomClient"
+                [ngClass]="{ 'is-invalid': submitted && f.prenomClient.errors }" />
+              <div *ngIf="submitted && f.prenomClient.errors" class="invalid-feedback">
+                <div *ngIf="f.prenomClient.errors.required">nom client est obligatoire</div>
+
+              </div>
+              </div>
+              <div class="form-group">
+                <label><i class="fas fa-door-open"></i>Numéro de chambre</label>
+                <input type="number" class="form-control" placeholder="Entrer numéro chambre" formControlName="numChambre"
+                [ngClass]="{ 'is-invalid': submitted && f.numChambre.errors }"/>
+                <div *ngIf="submitted && f.numChambre.errors" class="invalid-feedback">
+                  <div *ngIf="f.numChambre.errors.required">numéro du chambre est obligatoire</div>
+
+                </div>
+                 </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success"><i class="fas fa-user-plus"></i>Ajouter</button>
+                  <button class="btn btn-secondary" type="reset" (click)="onReset()">Annuler</button>
+                </div>
+              </form>
+          </div>
+      </div>
+</div>

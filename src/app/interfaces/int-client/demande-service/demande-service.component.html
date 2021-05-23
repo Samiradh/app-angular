@@ -1,0 +1,73 @@
+
+
+
+<div class="container">
+  <div class="row">
+    <app-int-client></app-int-client>
+    <div class="col-md-6 offset-md-3">
+          <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+              <h1 class="text-center">Demande de service</h1>
+
+              <div hidden class="form-group">
+                  <label >Id</label>
+                  <input type="text" class="form-control" name="IdService" ngModel>
+              </div>
+              <div class="form-group">
+                  <label ><i class="fa fa-user"></i>Nom</label>
+                  <input type="text" class="form-control" placeholder="Entrez votre nom" formControlName="nomC"
+                      [ngClass]="{ 'is-invalid': submitted && f.nomC.errors }">
+                  <div *ngIf="submitted && f.nomC.errors" class="invalid-feedback">
+                      <div *ngIf="f.nomC.errors.required">nom est obligatoire</div>
+                  </div>
+
+              </div>
+              <div class="form-group">
+                  <label ><i class="fa fa-user"></i>Prénom</label>
+                  <input type="text" class="form-control" placeholder="Entrez votre prénom" formControlName="prenomC"
+                      [ngClass]="{ 'is-invalid': submitted && f.prenomC.errors }" />
+                  <div *ngIf="submitted && f.prenomC.errors" class="invalid-feedback">
+                      <div *ngIf="f.prenomC.errors.required">First Name is required</div>
+                  </div>
+
+              </div>
+
+              <div class="form-group">
+                  <label ><i class="fas fa-gift"></i>Nom de service</label>
+                  <input type="text" class="form-control" placeholder="Entrez le nom de service" formControlName="nom"
+                      [ngClass]="{ 'is-invalid': submitted && f.nom.errors }">
+                  <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+                      <div *ngIf="f.nom.errors.required">nom est obligatoire</div>
+                  </div>
+              </div>
+
+
+              <div class="form-group">
+                  <label ><i class="fas fa-pencil-alt"></i>Description</label>
+                  <input type="textarea" class="form-control" cols="70" rows="70"
+                      placeholder="Entrez votre description" formControlName="description" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                      <div *ngIf="f.description.errors.required">description is required</div>
+                  </div>
+              </div>
+
+              <div hidden class="form-group">
+                  <label >Prix</label>
+                  <input type="text" class="form-control" name="price" ngModel>
+              </div>
+              <div hidden class="form-group">
+                  <label >date</label>
+                  <input type="text" class="form-control" name="dateDispo" ngModel>
+              </div>
+              <div hidden class="form-group">
+                  <label >image</label>
+                  <input type="text" class="form-control" name="image" ngModel>
+              </div>
+
+              <div class="text-center">
+                  <button type="submit" class="btn btn-success"><i class="fas fa-paper-plane"></i>Envoyer</button>
+                  <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+              </div>
+          </form>
+      </div>
+  </div>

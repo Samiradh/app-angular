@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="row">
+    <app-int-admin></app-int-admin>
+      <div class="col-md-6 offset-md-3">
+      <form #user="ngForm" novalidate >
+          <h1 class="text-center">Modifier les données d'un utilisateur</h1>
+
+          <div hidden class="form-group">
+              <label for="Id">Id</label>
+              <input type="text" [(ngModel)]="currentUser.id" name="id" class="form-control">
+          </div>
+
+          <div class="form-group">
+              <label for="username"><i class="fas fa-user"></i>Nom</label>
+              <input type="text" class="form-control" required pattern="^[a-zA-Z]+$" [(ngModel)]="currentUser.username" placeholder="Entrez le nom" name="username">
+
+          </div>
+          <div class="form-group">
+              <label for="email"><i class="fas fa-user"></i>Email</label>
+              <input type="text" class="form-control" required [(ngModel)]="currentUser.email" placeholder="Entrez l'email" name="email">
+
+          </div>
+
+          <div class="form-group">
+              <label for="password"><i class="fas fa-unlock-alt"></i>Mot de passe</label>
+              <input type="text" class="form-control" required maxlength="8"  [(ngModel)]="currentUser.password" placeholder="Entrez le mot de passe" name="password">
+
+          </div>
+
+          <div class="form-group">
+              <label for="role"><i class="fas fa-briefcase"></i>Role</label>
+              <input type="text" class="form-control" [(ngModel)]="currentUser.role" placeholder="Entrez le role" name="role">
+
+          </div>
+          <div class="text-center">
+          <button type="submit" (click)="updateUser()" class="btn btn-success"><i class="fas fa-edit">Modifier</i></button>
+          </div>
+      </form>
+  </div>
+</div>
+
